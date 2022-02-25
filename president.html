@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+        President guess
+    </title>
+    <style>
+        #result {
+            white-space: pre-line;
+        }
+    </style>
+</head>
+<body>
+
+<h2>President guess by Dustin Nold</h2>
+
+<form>
+    <label for="secretpresident">Enter the secret president name</label>
+    <input type ="password" id="secretpresident" name="secretpresident" value='George Washington'> <br>
+
+    <label for="president">Guess the president</label>
+    <input type ="text" id="president" name="president"> <br>
+
+    <input type="button" onclick="checkGuess()" value="Check the guess">
+</form>
+
+
+<p id="result"></p>
+
+<script> 
+var correct = 0
+var wrong = 0
+function checkGuess(){
+    console.log("Getting form values")
+    let secretpresident = document.getElementById("secretpresident").value
+    let president = document.getElementById("president").value
+    
+    out = document.getElementById("result")
+    if(secretpresident===president){
+        correct++;
+        out.innerHTML = "Correct: " + correct + "\nWrong: " + wrong;
+        alert('You got it right')
+    } else {
+        wrong++;
+        out.innerHTML = "Correct: " + correct +" \nWrong: " + wrong;
+        alert('Wrong president')
+    }
+}
+</script>
+
+</body>
+</html> 
