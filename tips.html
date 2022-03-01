@@ -14,13 +14,42 @@
     <label for="tip">Enter tip increase </label>
     <input type ="number" id="tip" name="tip" value=.05> <br>
 
-    <input type="button" onclick="tips()" value="Find tips">
+    <input type="button" onclick="tips(),chooseOp()" value="Find tips">
 </form>
 
 
 <p id="result">This text will be replaced </p>
+<p id="result2">This text will be replaced </p>
+<form>
+    <input type="radio" id="times" name="op" value="times"   
+    onClick="chooseOp()" checked>
+    <label for="times">*</label></br>
+  
+    <input type="radio" id="divide" name="op" 
+       value="divide" onClick="chooseOp()">
+    <label for="divide">/</label></br>
+  
+    <input type="radio" id="exp" name="op"   
+       value="exponent" onClick="chooseOp()">
+    <label for="exp">**</label></br>
+
+  </form>
 
 <script> 
+function chooseOp(){
+    let amount = document.getElementById("amount").value
+    let tip = document.getElementById("tip").value
+    let out = document.getElementById("result2")
+    if(document.getElementById("times").checked === true){
+        out.innerHTML = "value of " + amount + " * " + tip +": " + amount*tip
+    }
+    else if(document.getElementById("divide").checked === true){
+        out.innerHTML = "value of " + amount + " / " + tip +": " + amount/tip
+    }
+    else{
+        out.innerHTML = "value of " + amount + " ** " + tip +": " + amount**tip
+    }
+}
 
 function tips(){
     let amount = document.getElementById("amount").value
