@@ -27,9 +27,33 @@
 
 <p id="result"></p>
 
+<div class="container">
+    <img id="bird-image" width="100" height="100" alt="Pictures of birds"
+    src="dove.png" onclick="swapImage()">
+</div>
+
 <script> 
 var correct = 0
 var wrong = 0
+var useimage = 1
+function swapImage(){
+    switch(useimage){
+        case 1:
+        useimage++;
+        document.getElementById("bird-image").src ="ostriche.jpg";
+        break;
+
+        case 2: 
+        useimage++;
+        document.getElementById("bird-image").src ="tinamou.jpg";
+        break;
+
+        default:
+        useimage = 1
+        document.getElementById("bird-image").src ="Dove.png"
+    }
+
+}
 function checkGuess(){
     console.log("Getting form values")
     let secretpresident = document.getElementById("secretpresident").value
