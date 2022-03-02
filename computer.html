@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Computer checkout</title>
+</head>
+<body>
+
+<h2>Dustin Nold orders a computer</h2>
+
+<form>
+    <label for="memory">Extra memory </label>
+    <input type ="checkbox" id="memory" name="memory" value="extra"> <br>
+
+    <label for="mouse">Mouse </label>
+    <input type ="checkbox" id="mouse" name="mouse" value="mouse"> <br>
+
+    <label for="cell">cell service </label>
+    <input type ="checkbox" id="cell" name="cell" value="cell"> <br>
+
+    <input type="button" onclick="orderComputer()" value="Order a computer">
+</form>
+
+
+<p id="result">Your cart: </p>
+
+<script> 
+var my_computer = {}
+function orderComputer(){
+    let out = document.getElementById("result")
+    let memory = document.getElementById("memory").checked
+    let mouse = document.getElementById("mouse").checked
+    let cell = document.getElementById("cell").checked
+    my_computer = {}
+    my_computer["memory"] = memory
+    my_computer["mouse"] = mouse
+    my_computer["cell"] = cell
+    let myString = JSON.stringify(my_computer);
+    out.innerHTML = "Your cart: " + myString
+}
+
+</script>
+
+</body>
+</html> 
