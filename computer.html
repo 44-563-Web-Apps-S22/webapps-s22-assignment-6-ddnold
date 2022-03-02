@@ -19,21 +19,35 @@
 
     <input type="button" onclick="orderComputer()" value="Order a computer">
 </form>
+<form>
+    <label for="property">Enter a property name </label>
+    <input type ="text" id="property" name="property" value="engraved"> <br>
+
+    <label for="value">Enter a value </label>
+    <input type ="text" id="value" name="value"> <br>
+
+    <input type="button" onclick="updateComputer()" value="Update the computer">
+</form>
+
 
 
 <p id="result">Your cart: </p>
 
 <script> 
+function updateComputer(){
+    let property = document.getElementById("property").value
+    let value = document.getElementById("value").value
+    my_computer[property] = value
+    let myString = JSON.stringify(my_computer);
+    document.getElementById("result").innerHTML = "Your cart: " + myString
+}
 var my_computer = {}
 function orderComputer(){
     let out = document.getElementById("result")
-    let memory = document.getElementById("memory").checked
-    let mouse = document.getElementById("mouse").checked
-    let cell = document.getElementById("cell").checked
     my_computer = {}
-    my_computer["memory"] = memory
-    my_computer["mouse"] = mouse
-    my_computer["cell"] = cell
+    my_computer["Memory"] = document.getElementById("memory").checked
+    my_computer["Mouse"] = document.getElementById("mouse").checked
+    my_computer["Cell Service"] = document.getElementById("cell").checked
     let myString = JSON.stringify(my_computer);
     out.innerHTML = "Your cart: " + myString
 }
