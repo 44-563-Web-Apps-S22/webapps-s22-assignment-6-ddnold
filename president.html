@@ -21,7 +21,7 @@
     <label for="president">Guess the president</label>
     <input type ="text" id="president" name="president"> <br>
 
-    <input type="button" onclick="checkGuess()" value="Check the guess">
+    <input type="button" id = 'button' onclick="checkGuess()" value="Check the guess">
 </form>
 
 
@@ -58,18 +58,27 @@ function checkGuess(){
     console.log("Getting form values")
     let secretpresident = document.getElementById("secretpresident").value
     let president = document.getElementById("president").value
-    
     out = document.getElementById("result")
+
     if(secretpresident===president){
         correct++;
         out.innerHTML = "Correct: " + correct + "\nWrong: " + wrong;
         alert('You got it right')
-    } else {
+    } 
+    else {
         wrong++;
         out.innerHTML = "Correct: " + correct +" \nWrong: " + wrong;
         alert('Wrong president')
+        if(wrong===3){
+            document.getElementById("button").onclick = function() {gameOver()};
+        }
     }
 }
+
+function gameOver(){
+    alert("Sorry, game over.")
+}
+
 </script>
 
 </body>
